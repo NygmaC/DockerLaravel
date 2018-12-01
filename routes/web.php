@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/olamundo', function () {
+	return "<h1>Ola mundo</h1>";
+});
