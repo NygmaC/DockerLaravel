@@ -11,6 +11,7 @@
 |
 */
 
+//=> GET
 Route::get('/', function () {
     return view('welcome');
 });
@@ -78,3 +79,32 @@ Route::get('/retornoviewparametro/{nome}/{sobrenome}', function ($nome, $sobreno
 	'sobrenome' => $sobrenome]);
 });
 
+
+
+// => POST
+
+Route::post('rest/hello', function () {
+
+});
+
+//=> DELETE
+
+Route::delete('/rest/delete' function () {
+
+});
+
+// => PUT
+
+Route::put('/rest/put' function () {
+
+});
+
+// => PATCH
+Route::patch('/rest/patch' function () {
+
+});
+
+// => OPTIONS
+Route::options('/rest/options' function () {
+
+});
