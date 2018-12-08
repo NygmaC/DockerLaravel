@@ -1,15 +1,8 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// => Preparar para o uso de requisições
+// => REQUEST
+use Illuminate\Http\Request;
 
 //=> GET
 Route::get('/', function () {
@@ -41,7 +34,7 @@ Route::get('/seunomecomregranonome/{nome}/{n}',function ($nome, $n) {
 //=> A "?" serve para dizer que o parametro seja opcional
 //=> O null e um valor dafault
 Route::get('/seunomesemregra/{nome?}',function ($nome=null) {
-		echo "Ola $nome ";
+	echo "Ola $nome ";
 });
 
 
@@ -79,32 +72,31 @@ Route::get('/retornoviewparametro/{nome}/{sobrenome}', function ($nome, $sobreno
 	'sobrenome' => $sobrenome]);
 });
 
-
-
 // => POST
-
-Route::post('rest/hello', function () {
-
+// => Requisição de POST com parametros
+//=> Request são os parametros
+Route::post('/rest/request', function (Request $req) {
+	$nome = $req->input('nome'); //=> Dentro do input vai o nome do NAME que deseja pegar o valor.
+	return "hello $nome";
 });
 
-//=> DELETE
 
-Route::delete('/rest/delete' function () {
+//=> DELETE
+Route::delete('/rest/delete', function () {
 
 });
 
 // => PUT
-
-Route::put('/rest/put' function () {
+Route::put('/rest/put', function () {
 
 });
 
 // => PATCH
-Route::patch('/rest/patch' function () {
+Route::patch('/rest/patch', function () {
 
 });
 
 // => OPTIONS
-Route::options('/rest/options' function () {
+Route::options('/rest/options', function () {
 
 });
