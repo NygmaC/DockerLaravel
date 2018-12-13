@@ -100,3 +100,57 @@ Route::patch('/rest/patch', function () {
 Route::options('/rest/options', function () {
 
 });
+
+
+// => match
+//=> Com o match a rota ira atender mais de uma tipo de requisicao
+Route::match(['get', 'post'], '/rest/hello2', function () {
+	return "hello2";
+});
+
+// => any
+//=> Com o any a rota todo tipo de requisicao
+Route::any('/rest/hello3', function () {
+	return "hello3";
+});
+
+
+// => Nomeando rotas
+// => O noma e a referencia da rota na aplicacao, e como o id de uma rota
+Route::post('/app/produtos', function () {
+	return "meus produtos";
+})->name('meusprodutos');
+
+Route::get('/linkprodutos', function () {
+	// => Pega o nome de uma outrs rots
+	$url = route('meusprodutos');
+});
+
+
+
+// ROTAS APONTANDO PARA CONTROLLER
+Route::get('/nomecontroller', 'MeuControllador@getNome');
+
+// => Passando parametro para controller
+Route::get('/calcontroller/{n1}/{n2}', 'MeuControllador@calculaMultiplicacao');
+
+Route::get('/cliente', 'ClienteControllador@index');
+
+Route::post('/cliente', 'ClienteControllador@store');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
