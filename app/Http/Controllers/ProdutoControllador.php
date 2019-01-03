@@ -28,6 +28,22 @@ class ProdutoControllador extends Controller
 	}
 
 	public function opcoesprodutos($opcao) {
-		return view('opcoes','opcao' => $opcao )
+		return view('opcoes',['opcao' => $opcao]);
+	}
+
+
+	public function loopfor($n){
+		return view('loopfor', ['n' => $n]);
+	}
+
+	public function foreach() {
+		$produtos = [
+			['nome' => 'notebook'],
+			['nome' => 'mouse'],
+			['nome' => 'teclado'],
+			['nome' => 'monitor']
+		];
+
+		return view('arrayassociativo', ['produtos' => $produtos]);
 	}
 }
